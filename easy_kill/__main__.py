@@ -21,11 +21,25 @@ def die_easy(func: Callable = None) -> Callable:
         return wrapper
     else:
         old_input = input
-        def input_wrapper(prompt):
+        def input_wrapper(prompt=""):
             try:
                 return old_input(prompt)
             except KeyboardInterrupt:
                 exit()
 
+
         g = globals()['__builtins__']
+        if hasattr(g, '__dict__'):
+            g = g.__dict__
+
         g['input'] = input_wrapper
+
+
+def main():
+    import code
+    import readline
+
+    die_easy()
+    
+    console = code.InteractiveConsole(locals=globals())
+    console.interact()

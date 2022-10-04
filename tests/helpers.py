@@ -1,6 +1,20 @@
 import pytest
 
 
+def save_and_restore_global_builtins(f):
+    """Decorator to save and restore globals()['__builtins__'] before and after a test."""
+
+    def wrapper(*args, **kwargs):
+        old_builtins = {}
+        old_builtins.update(globals()['__builtins__'])
+
+        f(*args, **kwargs)
+
+        globals()['__builtins__'].update(old_builtins)
+
+    return wrapper
+
+
 def fake_input(func):
     """Decorator to fake input() calls in tests."""
 

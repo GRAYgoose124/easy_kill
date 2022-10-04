@@ -4,7 +4,6 @@ from easy_kill import die_easy
 from tests.helpers import fake_input, with_raises_sysexit
 
 
-@fake_input
 def test_easy_kill_deco():
     @die_easy
     def func_to_die():

@@ -5,7 +5,7 @@ I don't like how the python terminal behaves on keyboard interrupt.
 This fixes that. Yep, that's it.
 
 
-# Installing & Running
+# Installing
 
     git clone git@github.com:GRAYgoose124/easy_kill.git
     cd easy_kill
@@ -15,6 +15,7 @@ This fixes that. Yep, that's it.
     
 That'll do it.
 
+# Running
 To use simply:
 ```python
     from easy_kill import die_easy
